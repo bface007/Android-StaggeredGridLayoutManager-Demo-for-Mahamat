@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bfacedemo.demopourmahamat.models.Recipe;
 import com.bfacedemo.demopourmahamat.utils.TimeUtils;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,11 +26,13 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
   public RecipesAdapter(Context context) {
     this.mContext = context;
+    this.mRecipes = new ArrayList<>();
   }
 
   public RecipesAdapter(Context context, RecipesEventsListener listener) {
     this.mContext = context;
     this.mListener = listener;
+    this.mRecipes = new ArrayList<>();
   }
 
   public void swapItems(List<Recipe> recipes) {
@@ -49,6 +54,12 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     holder.recipeCover.setImageResource(recipe.getCover());
     holder.recipeDescription.setText(recipe.getDescription());
     holder.recipeTime.setText(TimeUtils.getFormattedTime(recipe.getTime()));
+
+    Glide.with(this.mContext)
+        .load(recipe.getCover())
+        .centerCrop()
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+        .into(holder.recipeCover);
 
     if(mListener != null) {
       holder.recipe.setOnClickListener(new View.OnClickListener() {

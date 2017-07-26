@@ -8,7 +8,10 @@
     app:cardCornerRadius="2dp"
     app:cardBackgroundColor="@android:color/white"
     app:cardElevation="4dp"
-    android:layout_marginBottom="@dimen/default_padding"
+    android:layout_marginLeft="@dimen/mini_padding"
+    android:layout_marginRight="@dimen/mini_padding"
+    android:layout_marginBottom="@dimen/mini_padding"
+    android:layout_marginTop="@dimen/default_padding"
     >
   <LinearLayout
       android:layout_width="match_parent"
@@ -24,6 +27,8 @@
         tools:text="@string/lorem"
         android:textColor="@color/textColorOnWhiteBG"
         android:padding="@dimen/default_padding"
+        android:textStyle="bold"
+        android:textSize="16sp"
         android:id="@+id/recipe_name"
         />
     <ImageView

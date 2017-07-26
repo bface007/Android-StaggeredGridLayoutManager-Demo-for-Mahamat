@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <dimen name="image_height">100dp</dimen>
+  <dimen name="image_height">150dp</dimen>
   <dimen name="default_padding">8dp</dimen>
+  <dimen name="mini_padding">4dp</dimen>
 </resources>
